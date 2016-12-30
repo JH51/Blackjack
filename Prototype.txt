@@ -1,0 +1,31 @@
+Team Members
+Jonathan Huang
+Giorgio Vidali
+
+Period
+10
+
+Team Name
+Black
+
+I. Project Idea
+Create a turn-based game of Blackjack with up to four players
+
+II. Critical Features
+1. GUI
+	Cards
+2. Artificial Intelligence
+	Difficulty
+
+III. To be Added Later Features
+1. Poker Table GUI Skin
+2. Smoother Animations
+3. Different Gamemodes
+4. Betting
+
+IV. Development Stages
+1. Create card and suit classes that can be displayed within terminal
+2. Playability, enforce game rules
+3. GUI
+
+V. Diagrams of Features
