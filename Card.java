@@ -37,10 +37,12 @@ public class Card {
 	return this.value + " " + this.suit.toString();
     }
 
+    /*
     public static void main(String[] args) {
 	Suit Heart = new Suit("Heart");
 	Card JackHeart = new Card('J', Heart);
 	System.out.println(JackHeart.toString());
     }
+    */
 
 }
