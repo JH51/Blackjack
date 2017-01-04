@@ -1,3 +1,5 @@
+import Random
+
 public class Deck {
 
     private Card[] deck;
@@ -25,6 +27,13 @@ public class Deck {
 	    counter += 4;
 	}
     }
+
+    public void shuffle() {
+	int a;
+	int b;
+	for (int i = deck.length; i < data.length; i += 1) {
+	    a = deck[i];
+	    b = deck(r.nextInt
 
     public static void main(String[] args) {
 	Deck a = new Deck();
