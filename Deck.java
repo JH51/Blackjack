@@ -6,7 +6,7 @@ public class Deck {
     private Card[] deck;
 
     public Deck() {
-	deck = new Card[100];
+	deck = new Card[52];
 	Suit Diamond = new Suit("Diamond");
 	Suit Clover = new Suit("Clover");
 	Suit Heart = new Suit("Heart");
