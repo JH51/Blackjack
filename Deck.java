@@ -11,7 +11,7 @@ public class Deck {
 	Suit Clover = new Suit("Clover");
 	Suit Heart = new Suit("Heart");
 	Suit Spade = new Suit("Spade");
-	char[] names = {'A', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'J', 'Q', 'K'};
+	char[] names = {'A', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'J', 'Q', 'K'};
 	int i = 0;
 	for (char c : names) {
 	    deck[i] = new Card(c, Diamond);
