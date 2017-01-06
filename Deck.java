@@ -4,9 +4,11 @@ public class Deck {
 
     private Random r = new Random();
     private Card[] deck;
+    private int count = 0;
 
     public Deck() {
-	deck = new Card[52];
+	count = 52;
+	deck = new Card[count];
 	Suit Diamond = new Suit("Diamond");
 	Suit Clover = new Suit("Clover");
 	Suit Heart = new Suit("Heart");
@@ -36,6 +38,12 @@ public class Deck {
 	    deck[j] = a;
 	}
     }
+
+    /*
+    public static void remove() {
+	count -= 1;
+	this.deck[count] = 
+    */
 
     public static void main(String[] args) {
 	Deck a = new Deck();
