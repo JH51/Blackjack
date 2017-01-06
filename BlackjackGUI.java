@@ -18,7 +18,7 @@ public class BlackjackGUI extends JFrame{
 
   pane = this.getContentPane();
   pane.setBackground(Color.green);
-  pane.setLayout(new FlowLayout());
+  pane.setLayout(new FlowLayout(2,5,200));
   JButton b = new JButton("Hit");
   JButton b1 = new JButton("Stay");
   JButton b2 = new JButton("Next Hand");
