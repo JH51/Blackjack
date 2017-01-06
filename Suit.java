@@ -1,24 +1,21 @@
 public class Suit {
 
-    private String suit;
+    private char suit;
     private int value;
 
-    public Suit(String suit) {
+    public Suit(char suit) {
+	this.suit = suit;
 	switch (suit) {
-	case "Diamond":
-	    this.suit = suit;
+	case '♦':
 	    this.value = 1;
 	    break;
-	case "Clover":
-	    this.suit = suit;
+	case '♣':
 	    this.value = 2;
 	    break;
-	case "Heart":
-	    this.suit = suit;
+	case '♥':
 	    this.value = 3;
 	    break;
-	case "Spade":
-	    this.suit = suit;
+	case '♠':
 	    this.value = 4;
 	    break;
 	}
@@ -27,20 +24,16 @@ public class Suit {
     public Suit(int value) {
 	switch (value) {
 	case 1:
-	    this.value = value;
-	    this.suit = "Diamond";
+	    this.suit = '♦';
 	    break;
 	case 2:
-	    this.value = value;
-	    this.suit = "Clover";
+	    this.suit = '♣';
 	    break;
 	case 3:
-	    this.value = value;
-	    this.suit = "Heart";
+	    this.suit = '♥';
 	    break;
 	case 4:
-	    this.value = value;
-	    this.suit = "Spade";
+	    this.suit = '♠';
 	    break;
 	}
     }
@@ -50,7 +43,7 @@ public class Suit {
     }
 
     public String toString() {
-	return this.suit;
+	return this.suit + "";
     }
 
 }

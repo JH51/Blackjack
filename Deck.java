@@ -9,10 +9,10 @@ public class Deck {
     public Deck() {
 	count = 52;
 	deck = new Card[count];
-	Suit Diamond = new Suit("Diamond");
-	Suit Clover = new Suit("Clover");
-	Suit Heart = new Suit("Heart");
-	Suit Spade = new Suit("Spade");
+	Suit Diamond = new Suit(1);
+	Suit Clover = new Suit(2);
+	Suit Heart = new Suit(3);
+	Suit Spade = new Suit(4);
 	char[] names = {'A', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'J', 'Q', 'K'};
 	int i = 0;
 	for (char c : names) {
