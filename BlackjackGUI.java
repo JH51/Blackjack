@@ -21,11 +21,13 @@ public class BlackjackGUI extends JFrame{
   pane.setLayout(new FlowLayout());
   JButton b = new JButton("Hit");
   JButton b1 = new JButton("Stay");
-  JButton b2 = new JButton("Stay");
+  JButton b2 = new JButton("Next Hand");
+
 
   pane.add(b);
   pane.add(b1);
   pane.add(b2);
+
 
 }
   public static void main(String[] args) {
