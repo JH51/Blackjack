@@ -2,7 +2,7 @@ import java.util.Random;
 
 public class Deck {
 
-    private Random r = new Random();
+    Random r = new Random();
     private Card[] deck;
     private int count = 0;
 
@@ -51,7 +51,7 @@ public class Deck {
     public int length() {
 	return count;
     }
-    
+
     public static void main(String[] args) {
 	Deck a = new Deck();
 	a.shuffle();

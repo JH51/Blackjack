@@ -22,10 +22,10 @@ public class Blackjack {
 
   Scanner playerInput = new Scanner(System.in);
 
-Deck d = new Deck();
+
   while(game.player.getMoney() > 0){
 
-
+    Deck d = new Deck();
     d.shuffle();
     int playerValue = 0;
 boolean roundFinished = false;
@@ -67,6 +67,7 @@ if(bet > game.player.getMoney()){
       System.out.println(game.player.getHand()[0].getValue() + game.player.getHand()[1].getValue()
       + " remains your hand value");
       playerValue = game.player.getHand()[0].getValue() + game.player.getHand()[1].getValue();
+      break;
     }
 
 //HITTING
@@ -92,6 +93,8 @@ if(bet > game.player.getMoney()){
       playerValue =  game.player.getHand()[0].getValue() + game.player.getHand()[1].getValue()
       + game.player.getHand()[2].getValue();
     }
+    break;
+  }
 
 //DEALER ACTIONS
     System.out.println("The dealer shows " + game.dealer.getHand()[0].toString()
@@ -129,11 +132,9 @@ if(bet > game.player.getMoney()){
     }
 
 
-break;
     }
 
 
   }
 
  }
-    }
