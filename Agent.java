@@ -22,6 +22,10 @@ public class Agent {
 	return this.value;
     }
 
+    public Card[] getHand() {
+	return this.hand;
+    }
+
     public void draw(Deck deck) {
         hand[count] = deck.draw();
 	count += 1;
