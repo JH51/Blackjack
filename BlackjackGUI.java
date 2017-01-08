@@ -17,13 +17,17 @@ public class BlackjackGUI extends JFrame{
 
 
   pane = this.getContentPane();
-  pane.setBackground(Color.green);
-  pane.setLayout(new FlowLayout());
+  pane.setBackground( new Color(130,50,40) );
+  pane.setLayout(new FlowLayout(2,5,200));
   JButton b = new JButton("Hit");
   JButton b1 = new JButton("Stay");
+  JButton b2 = new JButton("Next Hand");
+
 
   pane.add(b);
   pane.add(b1);
+  pane.add(b2);
+
 
 }
   public static void main(String[] args) {
