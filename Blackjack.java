@@ -26,7 +26,10 @@ public class Blackjack {
 
   while(game.player.getMoney() > 0){
 
-System.out.println("Current funds" + game.player.getMoney() + "how much to bet?");
+
+    int playerValue = 0;
+boolean roundFinished = false;
+System.out.println("Current funds " + game.player.getMoney() + " how much to bet?");
 
 int bet = playerInput.nextInt();
 if(bet > game.player.getMoney()){
@@ -50,6 +53,7 @@ if(bet > game.player.getMoney()){
     if(game.dealer.getHand()[0].getValue() + game.dealer.getHand()[1].getValue() == 21){
       System.out.println("Dealer has Blackjack");
       game.player.setMoney(game.player.getMoney() - bet);
+      roundFinished = true;
     }
     System.out.println(game.dealer.getHand()[0].getValue() + game.dealer.getHand()[1].getValue());
     System.out.println(game.player.getHand()[0].getValue() + game.player.getHand()[1].getValue() + " Is your current hand value " );
@@ -62,6 +66,7 @@ if(bet > game.player.getMoney()){
     if(hitOrStay == 0){
       System.out.println(game.player.getHand()[0].getValue() + game.player.getHand()[1].getValue()
       + " remains your hand value");
+      playerValue = game.player.getHand()[0].getValue() + game.player.getHand()[1].getValue();
     }
 
 //HITTING
@@ -83,17 +88,30 @@ if(bet > game.player.getMoney()){
         System.out.println(game.player.getHand()[0].getValue() + game.player.getHand()[1].getValue()
         + game.player.getHand()[2].getValue() + " is your new hand Value");
       }
-
+      playerValue =  game.player.getHand()[0].getValue() + game.player.getHand()[1].getValue()
+      + game.player.getHand()[2].getValue();
     }
 
 //DEALER ACTIONS
     System.out.println("The dealer shows " + game.dealer.getHand()[0].toString()
     + " " + game.dealer.getHand()[1].toString());
 
-   break;
-  }
-  break;
- }
+    int dealerValue = game.dealer.getHand()[0].getValue() + game.dealer.getHand()[1].getValue();
+    int x = 2;
+    while(dealerValue < 17){
+      game.dealer.draw(d);
+
+      dealerValue += game.dealer.getHand()[x].getValue();
+
+      System.out.println("dealer draws a " + game.dealer.getHand()[x].toString()
+      + "\n dealer's new hand value is" + dealerValue);
+      x += 1;
+    }
+break;
     }
 
-}
+   break;
+  }
+
+ }
+    }
