@@ -3,9 +3,11 @@ public class Card {
     private char name;
     private int value;
     private Suit suit;
+    private boolean hidden;
 
     public Card(char name, Suit suit) {
 	this.suit = suit;
+	this.hidden = false;
 	if (name == 'A') {
 	    this.name = name;
 	    this.value = 1;
@@ -34,15 +36,7 @@ public class Card {
     }
 
     public String toString() {
-	return this.value + " " + this.suit.toString();
+	return this.name + " " + this.value + " " + this.suit.toString();
     }
-
-    /*
-    public static void main(String[] args) {
-	Suit Heart = new Suit("Heart");
-	Card JackHeart = new Card('J', Heart);
-	System.out.println(JackHeart.toString());
-    }
-    */
 
 }

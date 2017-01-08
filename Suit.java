@@ -1,45 +1,60 @@
 public class Suit {
 
+    //private char suit;
     private String suit;
     private int value;
 
-    public Suit(String suit) {
+    /*
+    public Suit(char suit) {
+	this.suit = suit;
 	switch (suit) {
-	case "Diamond":
-	    this.suit = suit;
+	case '♦':
 	    this.value = 1;
 	    break;
-	case "Clover":
-	    this.suit = suit;
+	case '♣':
 	    this.value = 2;
 	    break;
-	case "Heart":
-	    this.suit = suit;
+	case '♥':
 	    this.value = 3;
 	    break;
-	case "Spade":
-	    this.suit = suit;
+	case '♠':
 	    this.value = 4;
 	    break;
 	}
     }
 
     public Suit(int value) {
+    this.value = value;
 	switch (value) {
 	case 1:
-	    this.value = value;
+	    this.suit = '♦';
+	    break;
+	case 2:
+	    this.suit = '♣';
+	    break;
+	case 3:
+	    this.suit = '♥';
+	    break;
+	case 4:
+	    this.suit = '♠';
+	    break;
+	}
+    }
+    */
+
+    public Suit(int value) {
+	this.value = value;
+        switch (value) {
+	case 1:
 	    this.suit = "Diamond";
 	    break;
 	case 2:
-	    this.value = value;
 	    this.suit = "Clover";
 	    break;
 	case 3:
-	    this.value = value;
-	    this.suit = "Heart";
+	    this.suit = "Clover";
 	    break;
 	case 4:
-	    this.value = value;
 	    this.suit = "Spade";
 	    break;
 	}
@@ -50,7 +65,7 @@ public class Suit {
     }
 
     public String toString() {
-	return this.suit;
+	return this.suit + "";
     }
 
 }
