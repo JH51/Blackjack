@@ -19,6 +19,9 @@ public class Agent {
     public int getMoney() {
       return this.money;
     }
+    public void setMoney(int newmoney){
+      money = newmoney;
+    }
     public int getValue() {
 	value = 0;
 	for (int i = 0; i < this.count; i += 1) {
@@ -46,6 +49,9 @@ public class Agent {
   a1.draw(d1);
 	System.out.println(a.getValue());
   System.out.println(a1.getValue());
+
+  a.setMoney(400);
+  System.out.println(a.getMoney());
     }
 
 }
