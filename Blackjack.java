@@ -55,7 +55,7 @@ if(bet > game.player.getMoney()){
       game.player.setMoney(game.player.getMoney() - bet);
       roundFinished = true;
     }
-    System.out.println(game.dealer.getHand()[0].getValue() + game.dealer.getHand()[1].getValue());
+
     System.out.println(game.player.getHand()[0].getValue() + game.player.getHand()[1].getValue() + " Is your current hand value " );
 
 
@@ -80,6 +80,7 @@ if(bet > game.player.getMoney()){
           System.out.println(
           + game.player.getHand()[0].getValue() + game.player.getHand()[1].getValue()
           + game.player.getHand()[2].getValue() + " is your new hand Value, YOU BUST");
+          game.player.setMoney(game.player.getMoney() - bet);
           break;
       }
       //NOT BUSTING
@@ -111,6 +112,20 @@ if(bet > game.player.getMoney()){
         System.out.println("Dealer Busts, You win " + bet);
         game.player.setMoney(game.player.getMoney() + bet);
       }
+    }
+    if(dealerValue == playerValue){
+      System.out.println("Push.");
+      roundFinished = true;
+    }
+    if((playerValue > dealerValue) && roundFinished == false){
+      System.out.println("You win the hand +" + bet + " to the bank");
+      game.player.setMoney(game.player.getMoney() + bet);
+    }
+
+    if((playerValue < dealerValue) && roundFinished == false){
+      roundFinished = true;
+      System.out.println("Dealer wins, you lose" + bet);
+      game.player.setMoney(game.player.getMoney() - bet);
     }
 
 
