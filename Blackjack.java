@@ -3,11 +3,13 @@ public class Blackjack {
     private Agent player;
     private Agent dealer;
     private Deck deck;
+    private int turn;
 
     public Blackjack() {
 	deck = new Deck();
         player = new Agent();
 	dealer = new Agent();
+	turn = 0;
     }
 
     public static void main(String[] args) {
