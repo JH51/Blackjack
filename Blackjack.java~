@@ -1,0 +1,19 @@
+public class Blackjack {
+
+    private Card[] player;
+    private Card[] dealer;
+    private Deck deck
+
+    public Blackjack {
+	deck = new Deck();
+        player = new Card[52];
+	dealer = new Card[52];
+    }
+
+    public getValue() {
+	int sum = 0;
+	for (card : player) {
+	    sum += card.getValue();
+	}
+	return sum;
+    }
