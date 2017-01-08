@@ -57,8 +57,8 @@ public class Card {
     }
 
     public String toString() {
-	return this.img;
-	//return this.name2 + " " + this.value + " " + this.suit.toString();
+	//return this.img;
+	return this.name2 + " of " + this.suit.toString();
     }
 
 }
