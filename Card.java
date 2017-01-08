@@ -35,7 +35,8 @@ public class Card {
 	    this.name2 = "king";
 	    this.value = 10;
 	}
-	if (!hidden) this.img = this.name2 + "_of_" + this.suit.toString() + ".png";
+	if (!hidden) this.img = "lib/" + this.name2 + "_of_" + this.suit.toString() + ".png";
+	else this.img = "lib/hidden.png";
     }
 
     public Card(int value, Suit suit) {
