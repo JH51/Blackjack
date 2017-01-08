@@ -39,18 +39,26 @@ public class Deck {
 	}
     }
 
-    /*
-    public static void remove() {
-	count -= 1;
-	this.deck[count] = 
-    */
+    public Card draw() {
+	this.count -= 1;
+	Card card = this.deck[count];
+	this.deck[count] = null;
+	return card;
+    }
 
+    public int length() {
+	return count;
+    }
+    
     public static void main(String[] args) {
 	Deck a = new Deck();
 	a.shuffle();
+	/*
 	for (int i = 0; i < a.deck.length; i += 1) {
 	    System.out.println(a.deck[i].toString());
 	}
+	*/
+	System.out.println(a.draw().toString());
     }
 
 }

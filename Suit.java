@@ -1,8 +1,10 @@
 public class Suit {
 
-    private char suit;
+    //private char suit;
+    private String suit;
     private int value;
 
+    /*
     public Suit(char suit) {
 	this.suit = suit;
 	switch (suit) {
@@ -22,6 +24,7 @@ public class Suit {
     }
 
     public Suit(int value) {
+    this.value = value;
 	switch (value) {
 	case 1:
 	    this.suit = '♦';
@@ -34,6 +37,25 @@ public class Suit {
 	    break;
 	case 4:
 	    this.suit = '♠';
+	    break;
+	}
+    }
+    */
+
+    public Suit(int value) {
+	this.value = value;
+        switch (value) {
+	case 1:
+	    this.suit = "Diamond";
+	    break;
+	case 2:
+	    this.suit = "Clover";
+	    break;
+	case 3:
+	    this.suit = "Clover";
+	    break;
+	case 4:
+	    this.suit = "Spade";
 	    break;
 	}
     }
