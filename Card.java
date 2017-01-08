@@ -3,9 +3,11 @@ public class Card {
     private char name;
     private int value;
     private Suit suit;
+    private boolean hidden;
 
     public Card(char name, Suit suit) {
 	this.suit = suit;
+	this.hidden = false;
 	if (name == 'A') {
 	    this.name = name;
 	    this.value = 1;
