@@ -46,16 +46,16 @@ public class Suit {
 	this.value = value;
         switch (value) {
 	case 1:
-	    this.suit = "Diamond";
+	    this.suit = "diamonds";
 	    break;
 	case 2:
-	    this.suit = "Clover";
+	    this.suit = "clovers";
 	    break;
 	case 3:
-	    this.suit = "Clover";
+	    this.suit = "hearts";
 	    break;
 	case 4:
-	    this.suit = "Spade";
+	    this.suit = "spades";
 	    break;
 	}
     }
