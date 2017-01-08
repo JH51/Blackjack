@@ -5,7 +5,6 @@ public class Blackjack {
     private Agent player;
     private Agent dealer;
     private Deck deck;
-    private int turn;
 
     public Blackjack() {
 
@@ -15,20 +14,19 @@ public class Blackjack {
   deck = new Deck();
         player = new Agent();
 	dealer = new Agent();
-	turn = 0;
     }
 
     public static void main(String[] args) {
 	Blackjack game = new Blackjack();
 
-  Deck d = new Deck();
-	d.shuffle();
+
   Scanner playerInput = new Scanner(System.in);
 
-
+Deck d = new Deck();
   while(game.player.getMoney() > 0){
 
 
+    d.shuffle();
     int playerValue = 0;
 boolean roundFinished = false;
 System.out.println("Current funds " + game.player.getMoney() + " how much to bet?");
@@ -100,7 +98,7 @@ if(bet > game.player.getMoney()){
 
     int dealerValue = game.dealer.getHand()[0].getValue() + game.dealer.getHand()[1].getValue();
     int x = 2;
-    while(dealerValue < 17){
+    while(dealerValue < 17 && roundFinished == false){
       game.dealer.draw(d);
 
       dealerValue += game.dealer.getHand()[x].getValue();
@@ -108,11 +106,18 @@ if(bet > game.player.getMoney()){
       System.out.println("dealer draws a " + game.dealer.getHand()[x].toString()
       + "\n dealer's new hand value is" + dealerValue);
       x += 1;
+      if(dealerValue > 21){
+        roundFinished = true;
+        System.out.println("Dealer Busts, You win " + bet);
+        game.player.setMoney(game.player.getMoney() + bet);
+      }
     }
+
+
 break;
     }
 
-   break;
+
   }
 
  }
