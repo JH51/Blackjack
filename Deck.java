@@ -2,7 +2,7 @@ import java.util.Random;
 
 public class Deck {
 
-    Random r = new Random();
+
     private Card[] deck;
     private int count = 0;
 
@@ -32,7 +32,7 @@ public class Deck {
 	Card a;
 	Card b;
  	for (int i = 0; i < deck.length; i += 1) {
-	    int j = r.nextInt(deck.length);
+	    int j = (int)(Math.random() * deck.length);
 	    a = deck[i];
 	    b = deck[j];
 	    deck[i] = b;

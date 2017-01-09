@@ -58,11 +58,18 @@ if(bet > game.player.getMoney()){
 
     System.out.println(game.player.getHand()[0].getValue() + game.player.getHand()[1].getValue() + " Is your current hand value " );
 
+    playerValue = game.player.getHand()[0].getValue() + game.player.getHand()[1].getValue();
+
+
+
+
 
     System.out.println("hit(0) to stay and (1) to hit");
     int hitOrStay = playerInput.nextInt();
 
 //Staying
+
+
     if(hitOrStay == 0){
       System.out.println(game.player.getHand()[0].getValue() + game.player.getHand()[1].getValue()
       + " remains your hand value");
@@ -97,6 +104,7 @@ if(bet > game.player.getMoney()){
     break;
   }
 
+
 //DEALER ACTIONS
     System.out.println("The dealer shows " + game.dealer.getHand()[0].toString()
     + " " + game.dealer.getHand()[1].toString());
@@ -128,7 +136,7 @@ if(bet > game.player.getMoney()){
 
     if((playerValue < dealerValue) && roundFinished == false){
       roundFinished = true;
-      System.out.println("Dealer wins, you lose" + bet);
+      System.out.println("Dealer wins, you lose " + bet);
       game.player.setMoney(game.player.getMoney() - bet);
     }
 
