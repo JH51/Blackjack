@@ -41,7 +41,7 @@ if(bet > game.player.getMoney()){
 }
 //player gets two cards
   game.player.draw(d);
-	game.player.draw(d);
+  game.player.draw(d);
   System.out.println("Your cards are:");
   System.out.println(game.player.getHand()[0].toString());
 	System.out.println(game.player.getHand()[1].toString());

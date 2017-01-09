@@ -2,7 +2,9 @@ import java.util.Random;
 
 public class Deck {
 
-    Random r = new Random();
+Double d = (int)Math.random()*1000;
+int i = (int) d;
+    Random r = new Random(i);
     private Card[] deck;
     private int count = 0;
 
@@ -51,6 +53,10 @@ public class Deck {
     public int length() {
 	return count;
     }
+
+public Card[] getDeck() {
+	return this.deck;
+}
 
     public static void main(String[] args) {
 	Deck a = new Deck();
