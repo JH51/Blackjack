@@ -52,13 +52,8 @@ public class Card {
 	return this.suit;
     }
 
-<<<<<<< HEAD
-    public String toString() {
-	return this.name + " " + this.value + " " + this.suit.toString();
-=======
     public void setHidden(boolean b) {
 	this.hidden = b;
->>>>>>> ca064e0bf99343ade9187ce0aa5623e9533bd308
     }
 
     public String toString() {
