@@ -82,6 +82,7 @@ if(bet > game.player.getMoney()){
           + game.player.getHand()[0].getValue() + game.player.getHand()[1].getValue()
           + game.player.getHand()[2].getValue() + " is your new hand Value, YOU BUST");
           game.player.setMoney(game.player.getMoney() - bet);
+          roundFinished = true;
           break;
       }
       //NOT BUSTING
