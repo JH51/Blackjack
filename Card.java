@@ -1,23 +1,42 @@
 public class Card {
 
     private char name;
+    private String name2;
     private int value;
     private Suit suit;
+    private boolean hidden;
+    public String img;
 
     public Card(char name, Suit suit) {
 	this.suit = suit;
+	this.hidden = false;
+	this.name = name;
 	if (name == 'A') {
-	    this.name = name;
+	    this.name2 = "ace";
 	    this.value = 1;
 	}
 	if (name >= '2' && name <= '9') {
-	    this.name = name;
+	    this.name2 = name + "";
 	    this.value = name - '0';
 	}
-	if (name == '0' || name == 'J' || name == 'Q' || name == 'K') {
-	    this.name = name;
+	if (name == '0') {
+	    this.name2 = "ten";
 	    this.value = 10;
 	}
+	if (name == 'J') {
+	    this.name2 = "jack";
+	    this.value = 10;
+	}
+	if (name == 'Q') {
+	    this.name2 = "queen";
+	    this.value = 10;
+	}
+	if (name == 'K') {
+	    this.name2 = "king";
+	    this.value = 10;
+	}
+	if (!hidden) this.img = "lib/" + this.name2 + "_of_" + this.suit.toString() + ".png";
+	else this.img = "lib/hidden.png";
     }
 
     public Card(int value, Suit suit) {
@@ -33,16 +52,18 @@ public class Card {
 	return this.suit;
     }
 
+<<<<<<< HEAD
     public String toString() {
 	return this.name + " " + this.value + " " + this.suit.toString();
+=======
+    public void setHidden(boolean b) {
+	this.hidden = b;
+>>>>>>> ca064e0bf99343ade9187ce0aa5623e9533bd308
     }
 
-    /*
-    public static void main(String[] args) {
-	Suit Heart = new Suit("Heart");
-	Card JackHeart = new Card('J', Heart);
-	System.out.println(JackHeart.toString());
+    public String toString() {
+	//return this.img;
+	return this.name2 + " of " + this.suit.toString();
     }
-    */
 
 }
