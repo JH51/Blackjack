@@ -2,7 +2,7 @@ import java.util.Random;
 
 public class Deck {
 
-    private Random r = new Random();
+    Random r = new Random();
     private Card[] deck;
     private int count = 0;
 
@@ -25,6 +25,7 @@ public class Deck {
 	    deck[i] = new Card(c, Spade);
 	    i += 1;
 	}
+	this.shuffle();
     }
 
     public void shuffle() {
@@ -40,24 +41,24 @@ public class Deck {
     }
 
     public Card draw() {
+	int index = 52 - count;
 	this.count -= 1;
-	Card card = this.deck[count];
-	this.deck[count] = null;
+	Card card = this.deck[index];
+	this.deck[index] = null;
 	return card;
     }
 
     public int length() {
 	return count;
     }
-    
+
     public static void main(String[] args) {
 	Deck a = new Deck();
 	a.shuffle();
-	/*
+	System.out.println(a.count);
 	for (int i = 0; i < a.deck.length; i += 1) {
-	    System.out.println(a.deck[i].toString());
+	    System.out.println(a.deck[i].toString() + " " + i);
 	}
-	*/
 	System.out.println(a.draw().toString());
     }
 
