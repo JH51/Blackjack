@@ -51,15 +51,11 @@ public class Blackjack {
 	Blackjack game = new Blackjack();
 	Deck d = new Deck();
 	d.shuffle();
-	//Random r = new Random();
-    // System.out.println(r.nextInt(52));
-	// game.shuffle(r);
-
 
   Scanner playerInput = new Scanner(System.in);
 
-
   while(game.money > 0){
+      
       game = new Blackjack(game.money);
 
       int playerValue = 0;
@@ -115,7 +111,8 @@ public class Blackjack {
       + game.player.getHand()[2].getValue()) > 21) {
           System.out.println(
           + game.player.getHand()[0].getValue() + game.player.getHand()[1].getValue()
-          + game.player.getHand()[2].getValue() + " is your new hand Value, YOU BUST");
+          + game.player.getHand()[2].getValue() + " is your new hand value, you BUST");
+	  roundFinished = true;
           game.money -= bet;
           break;
       }
@@ -151,8 +148,8 @@ public class Blackjack {
       }
     }
 
-    System.out.println("MONEY: " + game.money);
-    System.out.println("BET: " + bet);
+    //System.out.println("MONEY: " + game.money);
+    //System.out.println("BET: " + bet);
     
     if(dealerValue == playerValue){
       System.out.println("Push");
