@@ -41,6 +41,12 @@ public class Agent {
 	count += 1;
     }
 
+    public String toString() {
+	String tempString = "";
+	for (int i = 0; i < this.count; i += 1) tempString += "\n" + this.hand[i];
+	return tempString;
+    }
+
     public static void main(String[] args) {
 	Deck d = new Deck();
   Deck d1 = new Deck();
@@ -54,6 +60,7 @@ public class Agent {
 
   a.setMoney(400);
   System.out.println(a.getMoney());
+  System.out.println("A's hand:" + a.toString());
     }
 
 }
