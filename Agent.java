@@ -9,7 +9,7 @@ public class Agent {
 	this.hand = new Card[52];
 	this.count = 0;
 	this.value = 0;
-  this.money = 100;
+	//this.money = 100;
     }
 
     public int getCount() {
@@ -17,11 +17,13 @@ public class Agent {
     }
 
     public int getMoney() {
-      return this.money;
+	return this.money;
     }
-    public void setMoney(int newmoney){
-      money = newmoney;
+    
+    public void setMoney(int money){
+	this.money = money;
     }
+    
     public int getValue() {
 	value = 0;
 	for (int i = 0; i < this.count; i += 1) {

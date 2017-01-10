@@ -2,65 +2,96 @@ import java.util.Scanner;
 
 public class Blackjack {
 
+    private static final String CLEAR_SCREEN =  "\033[2J";
+    private static final String HIDE_CURSOR =  "\033[?25l";
+    private static final String SHOW_CURSOR =  "\033[?25h";
+
     private Agent player;
     private Agent dealer;
     private Deck deck;
+    private int money = 100;
 
     public Blackjack() {
-
-  System.out.println("Welcome to Blackjack");
-
-
-  deck = new Deck();
+	deck = new Deck();
         player = new Agent();
 	dealer = new Agent();
+	//this.money = 100;
     }
 
-    public static void main(String[] args) {
-	Blackjack game = new Blackjack();
+    public Blackjack(int money) {
+	deck = new Deck();
+	deck.shuffle();
+        player = new Agent();
+	dealer = new Agent();
+	this.money = money;
+    }
 
+    /*
+    public void shuffle(Random r) {
+	Card[] temp = deck.getDeck();
+	Card a;
+	Card b;
+ 	for (int i = 0; i < temp.length; i += 1) {
+	    int j = r.nextInt(temp.length);
+	    a = temp[i];
+	    b = temp[j];
+	    temp[i] = b;
+	    temp[j] = a;
+	}
+	this.deck.setDeck(temp);
+    }
+    */
+
+    
+    
+    public static void main(String[] args) {
+	System.out.println("\nWelcome to Blackjack");
+	//System.out.println(CLEAR_SCREEN);
+	//	System.out.println(HIDE_CURSOR);
+	Blackjack game = new Blackjack();
+	Deck d = new Deck();
+	d.shuffle();
 
   Scanner playerInput = new Scanner(System.in);
 
+  while(game.money > 0){
+      
+      game = new Blackjack(game.money);
 
-  while(game.player.getMoney() > 0){
+      int playerValue = 0;
+      boolean roundFinished = false;
+      System.out.println("\nCurrent funds: " + game.money + " \nHow much to wager?");
 
-    Deck d = new Deck();
-    d.shuffle();
-    int playerValue = 0;
-boolean roundFinished = false;
-System.out.println("Current funds: " + game.player.getMoney() + " \nHow much to wager?");
+      int bet = playerInput.nextInt();
+      if(bet > game.money){
+	  System.out.println("Cannot bet more than what you currently have");
+	  break;
+      }
+      //player gets two cards
+      game.player.draw(d);
+      game.player.draw(d);
+      System.out.println("\nYour cards are:");
+      System.out.println(game.player.getHand()[0].toString());
+      System.out.println(game.player.getHand()[1].toString());
+      //dealer gets two cards
+      game.dealer.draw(d);
+      game.dealer.draw(d);
+      System.out.println("The dealer shows ");
+      System.out.println(game.dealer.getHand()[0].toString());
 
-int bet = playerInput.nextInt();
-if(bet > game.player.getMoney()){
-  System.out.println("Cannot bet more than what you currently have");
-  break;
-}
-//player gets two cards
-  game.player.draw(d);
-	game.player.draw(d);
-  System.out.println("\nYour cards are:");
-  System.out.println(game.player.getHand()[0].toString());
-	System.out.println(game.player.getHand()[1].toString());
-//dealer gets two cards
-  game.dealer.draw(d);
-  game.dealer.draw(d);
-  System.out.println("The dealer shows ");
-  System.out.println(game.dealer.getHand()[0].toString());
+      //loop for action
+      while(true){
+	  if(game.dealer.getHand()[0].getValue() + game.dealer.getHand()[1].getValue() == 21){
+	      System.out.println("Dealer has Blackjack");
+	      game.money -= bet;
+	      roundFinished = true;
+	  }
 
-//loop for action
-  while(true){
-    if(game.dealer.getHand()[0].getValue() + game.dealer.getHand()[1].getValue() == 21){
-      System.out.println("Dealer has Blackjack");
-      game.player.setMoney(game.player.getMoney() - bet);
-      roundFinished = true;
-    }
-
-    System.out.println(game.player.getHand()[0].getValue() + game.player.getHand()[1].getValue() + " is your current hand value" );
+	  System.out.println(game.player.getHand()[0].getValue() + game.player.getHand()[1].getValue() + " is your current hand value" );
 
 
-    System.out.println("press (0) to stay and (1) to hit");
-    int hitOrStay = playerInput.nextInt();
+	  System.out.println("press (0) to stay and (1) to hit");
+	  int hitOrStay = playerInput.nextInt();
 
 //Staying
     if(hitOrStay == 0){
@@ -80,17 +111,19 @@ if(bet > game.player.getMoney()){
       + game.player.getHand()[2].getValue()) > 21) {
           System.out.println(
           + game.player.getHand()[0].getValue() + game.player.getHand()[1].getValue()
-          + game.player.getHand()[2].getValue() + " is your new hand Value, YOU BUST");
-          game.player.setMoney(game.player.getMoney() - bet);
+          + game.player.getHand()[2].getValue() + " is your new hand value, you BUST");
+	  roundFinished = true;
+          game.money -= bet;
           break;
       }
+      
       //NOT BUSTING
       if((game.player.getHand()[0].getValue() + game.player.getHand()[1].getValue()
       + game.player.getHand()[2].getValue()) <= 21) {
         System.out.println(game.player.getHand()[0].getValue() + game.player.getHand()[1].getValue()
         + game.player.getHand()[2].getValue() + " is your new hand value");
       }
-      playerValue =  game.player.getHand()[0].getValue() + game.player.getHand()[1].getValue()
+      playerValue = game.player.getHand()[0].getValue() + game.player.getHand()[1].getValue()
       + game.player.getHand()[2].getValue();
     }
     break;
@@ -104,33 +137,35 @@ if(bet > game.player.getMoney()){
     int x = 2;
     while(dealerValue < 17 && roundFinished == false){
       game.dealer.draw(d);
-
       dealerValue += game.dealer.getHand()[x].getValue();
-
       System.out.println("Dealer draws a " + game.dealer.getHand()[x].toString()
       + "\nDealer's new hand value is " + dealerValue);
       x += 1;
       if(dealerValue > 21){
         roundFinished = true;
         System.out.println("Dealer busts, you win: " + bet);
-        game.player.setMoney(game.player.getMoney() + bet);
+        game.money += bet;
       }
     }
+
+    //System.out.println("MONEY: " + game.money);
+    //System.out.println("BET: " + bet);
+    
     if(dealerValue == playerValue){
-      System.out.println("Push.");
+      System.out.println("Push");
       roundFinished = true;
     }
+    
     if((playerValue > dealerValue) && roundFinished == false){
       System.out.println("You win the hand, you gain: " + bet);
-      game.player.setMoney(game.player.getMoney() + bet);
+      game.money += bet;
     }
-
+    
     if((playerValue < dealerValue) && roundFinished == false){
       roundFinished = true;
       System.out.println("Dealer wins, you lose: " + bet);
-      game.player.setMoney(game.player.getMoney() - bet);
+      game.money -= bet;
     }
-
 
     }
 
