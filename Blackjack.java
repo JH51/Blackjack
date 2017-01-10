@@ -39,7 +39,7 @@ if(bet > game.player.getMoney()){
 //player gets two cards
   game.player.draw(d);
 	game.player.draw(d);
-  System.out.println("Your cards are:");
+  System.out.println("\nYour cards are:");
   System.out.println(game.player.getHand()[0].toString());
 	System.out.println(game.player.getHand()[1].toString());
 //dealer gets two cards
@@ -73,7 +73,7 @@ if(bet > game.player.getMoney()){
 //HITTING
     if(hitOrStay == 1){
       game.player.draw(d);
-      System.out.println("You have drawn a " + game.player.getHand()[2].toString());
+      System.out.println("\nYou have drawn a " + game.player.getHand()[2].toString());
 
       //BUSTING
       if((game.player.getHand()[0].getValue() + game.player.getHand()[1].getValue()
@@ -88,7 +88,7 @@ if(bet > game.player.getMoney()){
       if((game.player.getHand()[0].getValue() + game.player.getHand()[1].getValue()
       + game.player.getHand()[2].getValue()) <= 21) {
         System.out.println(game.player.getHand()[0].getValue() + game.player.getHand()[1].getValue()
-        + game.player.getHand()[2].getValue() + " is your new hand Value");
+        + game.player.getHand()[2].getValue() + " is your new hand value");
       }
       playerValue =  game.player.getHand()[0].getValue() + game.player.getHand()[1].getValue()
       + game.player.getHand()[2].getValue();
@@ -97,7 +97,7 @@ if(bet > game.player.getMoney()){
   }
 
 //DEALER ACTIONS
-    System.out.println("The dealer shows " + game.dealer.getHand()[0].toString()
+    System.out.println("The dealer shows:" + game.dealer.getHand()[0].toString()
     + " " + game.dealer.getHand()[1].toString());
 
     int dealerValue = game.dealer.getHand()[0].getValue() + game.dealer.getHand()[1].getValue();
@@ -107,12 +107,12 @@ if(bet > game.player.getMoney()){
 
       dealerValue += game.dealer.getHand()[x].getValue();
 
-      System.out.println("dealer draws a " + game.dealer.getHand()[x].toString()
-      + "\n dealer's new hand value is " + dealerValue);
+      System.out.println("Dealer draws a " + game.dealer.getHand()[x].toString()
+      + "\nDealer's new hand value is " + dealerValue);
       x += 1;
       if(dealerValue > 21){
         roundFinished = true;
-        System.out.println("Dealer Busts, You win " + bet);
+        System.out.println("Dealer busts, you win " + bet);
         game.player.setMoney(game.player.getMoney() + bet);
       }
     }
@@ -121,13 +121,13 @@ if(bet > game.player.getMoney()){
       roundFinished = true;
     }
     if((playerValue > dealerValue) && roundFinished == false){
-      System.out.println("You win the hand +" + bet + " to the bank");
+      System.out.println("You win the hand, you gain: " + bet);
       game.player.setMoney(game.player.getMoney() + bet);
     }
 
     if((playerValue < dealerValue) && roundFinished == false){
       roundFinished = true;
-      System.out.println("Dealer wins, you lose" + bet);
+      System.out.println("Dealer wins, you lose: " + bet);
       game.player.setMoney(game.player.getMoney() - bet);
     }
 
