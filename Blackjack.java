@@ -29,11 +29,11 @@ public class Blackjack {
     d.shuffle();
     int playerValue = 0;
 boolean roundFinished = false;
-System.out.println("Current funds " + game.player.getMoney() + " how much to bet?");
+System.out.println("Current funds: " + game.player.getMoney() + " \nHow much to wager?");
 
 int bet = playerInput.nextInt();
 if(bet > game.player.getMoney()){
-  System.out.println("can't bet more than what you have");
+  System.out.println("Cannot bet more than what you currently have");
   break;
 }
 //player gets two cards
@@ -45,7 +45,7 @@ if(bet > game.player.getMoney()){
 //dealer gets two cards
   game.dealer.draw(d);
   game.dealer.draw(d);
-  System.out.println("The dealer shows");
+  System.out.println("The dealer shows ");
   System.out.println(game.dealer.getHand()[0].toString());
 
 //loop for action
@@ -56,10 +56,10 @@ if(bet > game.player.getMoney()){
       roundFinished = true;
     }
 
-    System.out.println(game.player.getHand()[0].getValue() + game.player.getHand()[1].getValue() + " Is your current hand value " );
+    System.out.println(game.player.getHand()[0].getValue() + game.player.getHand()[1].getValue() + " is your current hand value" );
 
 
-    System.out.println("hit(0) to stay and (1) to hit");
+    System.out.println("press (0) to stay and (1) to hit");
     int hitOrStay = playerInput.nextInt();
 
 //Staying
@@ -108,7 +108,7 @@ if(bet > game.player.getMoney()){
       dealerValue += game.dealer.getHand()[x].getValue();
 
       System.out.println("dealer draws a " + game.dealer.getHand()[x].toString()
-      + "\n dealer's new hand value is" + dealerValue);
+      + "\n dealer's new hand value is " + dealerValue);
       x += 1;
       if(dealerValue > 21){
         roundFinished = true;
