@@ -2,13 +2,7 @@ import java.util.Random;
 
 public class Deck {
 
-<<<<<<< HEAD
-
-=======
-Double d = (int)Math.random()*1000;
-int i = (int) d;
-    Random r = new Random(i);
->>>>>>> e2190ffc83108edd9d2d92c20c973d3913637819
+    Random r = new Random();
     private Card[] deck;
     private int count = 0;
 
@@ -38,7 +32,7 @@ int i = (int) d;
 	Card a;
 	Card b;
  	for (int i = 0; i < deck.length; i += 1) {
-	    int j = (int)(Math.random() * deck.length);
+	    int j = r.nextInt(deck.length);
 	    a = deck[i];
 	    b = deck[j];
 	    deck[i] = b;
@@ -57,10 +51,6 @@ int i = (int) d;
     public int length() {
 	return count;
     }
-
-public Card[] getDeck() {
-	return this.deck;
-}
 
     public static void main(String[] args) {
 	Deck a = new Deck();
