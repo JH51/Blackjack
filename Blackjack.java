@@ -27,9 +27,6 @@ public class Blackjack {
 
     Deck d = new Deck();
     d.shuffle();
-    for (int i = 0; i < 5; i += 1) {
-	System.out.println(" " + d.getDeck()[i].toString());
-    }
     int playerValue = 0;
 boolean roundFinished = false;
 System.out.println("Current funds: " + game.player.getMoney() + " \nHow much to wager?");
@@ -61,18 +58,11 @@ if(bet > game.player.getMoney()){
 
     System.out.println(game.player.getHand()[0].getValue() + game.player.getHand()[1].getValue() + " is your current hand value" );
 
-    playerValue = game.player.getHand()[0].getValue() + game.player.getHand()[1].getValue();
-
-
-
-
 
     System.out.println("press (0) to stay and (1) to hit");
     int hitOrStay = playerInput.nextInt();
 
 //Staying
-
-
     if(hitOrStay == 0){
       System.out.println(game.player.getHand()[0].getValue() + game.player.getHand()[1].getValue()
       + " remains your hand value");
@@ -92,7 +82,6 @@ if(bet > game.player.getMoney()){
           + game.player.getHand()[0].getValue() + game.player.getHand()[1].getValue()
           + game.player.getHand()[2].getValue() + " is your new hand Value, YOU BUST");
           game.player.setMoney(game.player.getMoney() - bet);
-          roundFinished = true;
           break;
       }
       //NOT BUSTING
@@ -106,7 +95,6 @@ if(bet > game.player.getMoney()){
     }
     break;
   }
-
 
 //DEALER ACTIONS
     System.out.println("The dealer shows:" + game.dealer.getHand()[0].toString()
@@ -124,7 +112,7 @@ if(bet > game.player.getMoney()){
       x += 1;
       if(dealerValue > 21){
         roundFinished = true;
-        System.out.println("Dealer busts, you win " + bet);
+        System.out.println("Dealer busts, you win: " + bet);
         game.player.setMoney(game.player.getMoney() + bet);
       }
     }
@@ -139,11 +127,7 @@ if(bet > game.player.getMoney()){
 
     if((playerValue < dealerValue) && roundFinished == false){
       roundFinished = true;
-<<<<<<< HEAD
-      System.out.println("Dealer wins, you lose " + bet);
-=======
       System.out.println("Dealer wins, you lose: " + bet);
->>>>>>> Development
       game.player.setMoney(game.player.getMoney() - bet);
     }
 
