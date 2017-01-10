@@ -1,32 +1,64 @@
 import java.util.Scanner;
+import java.util.Random;
 
 public class Blackjack {
+
+    private static final String CLEAR_SCREEN =  "\033[2J";
+    private static final String HIDE_CURSOR =  "\033[?25l";
+    private static final String SHOW_CURSOR =  "\033[?25h";
 
     private Agent player;
     private Agent dealer;
     private Deck deck;
 
     public Blackjack() {
-
-  System.out.println("Welcome to Blackjack");
-
-
-  deck = new Deck();
+	
+	System.out.println("Welcome to Blackjack");
+	
+	deck = new Deck();
         player = new Agent();
 	dealer = new Agent();
     }
 
+    public void shuffle(Random r) {
+	Card[] temp = deck.getDeck();
+	Card a;
+	Card b;
+ 	for (int i = 0; i < temp.length; i += 1) {
+	    int j = r.nextInt(temp.length);
+	    a = temp[i];
+	    b = temp[j];
+	    temp[i] = b;
+	    temp[j] = a;
+	}
+	this.deck.setDeck(temp);
+    }
+
+    
+    
     public static void main(String[] args) {
+	//System.out.println(CLEAR_SCREEN);
+	//	System.out.println(HIDE_CURSOR);
 	Blackjack game = new Blackjack();
+	Deck d = new Deck();
+	d.shuffle();
+    Random r = new Random();
+    // System.out.println(r.nextInt(52));
+    game.shuffle(r);
 
 
   Scanner playerInput = new Scanner(System.in);
 
 
   while(game.player.getMoney() > 0){
-
+      game = new Blackjack();
+      /*
     Deck d = new Deck();
     d.shuffle();
+    Random r = new Random();
+    System.out.println(r.nextInt(52));
+    game.shuffle(r);
+      */
     int playerValue = 0;
 boolean roundFinished = false;
 System.out.println("Current funds: " + game.player.getMoney() + " \nHow much to wager?");
