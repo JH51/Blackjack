@@ -70,14 +70,11 @@ public class Blackjack {
       //player gets two cards
       game.player.draw(d);
       game.player.draw(d);
-      System.out.println("\nYour cards are:");
-      System.out.println(game.player.getHand()[0].toString());
-      System.out.println(game.player.getHand()[1].toString());
+      System.out.println("\nYour cards are:\n" + game.player.getHand()[0].toString() + "\n" + game.player.getHand()[1].toString());
       //dealer gets two cards
       game.dealer.draw(d);
       game.dealer.draw(d);
-      System.out.println("The dealer shows ");
-      System.out.println(game.dealer.getHand()[0].toString());
+      System.out.println("The dealer shows:\n" + game.dealer.getHand()[0].toString());
 
       //loop for action
       while(true){
@@ -130,8 +127,8 @@ public class Blackjack {
   }
 
 //DEALER ACTIONS
-    System.out.println("The dealer shows:" + game.dealer.getHand()[0].toString()
-    + " " + game.dealer.getHand()[1].toString());
+    System.out.println("The dealer shows:\n" + game.dealer.getHand()[0].toString()
+    + "\n" + game.dealer.getHand()[1].toString());
 
     int dealerValue = game.dealer.getHand()[0].getValue() + game.dealer.getHand()[1].getValue();
     int x = 2;
