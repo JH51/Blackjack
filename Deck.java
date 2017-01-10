@@ -52,6 +52,14 @@ public class Deck {
 	return count;
     }
 
+    public Card[] getDeck() {
+	return this.deck;
+    }
+
+    public void setDeck(Card[] deck) {
+	this.deck = deck;
+    }
+
     public static void main(String[] args) {
 	Deck a = new Deck();
 	a.shuffle();
