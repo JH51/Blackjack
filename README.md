@@ -1,3 +1,8 @@
 # Blackjack
 
 APCS1_Fall_Final
+
+
+*****WORK ON ACE
+*****WORK ON GUI
+*****WORK ON PLAYER CAN HIT AS MUCH AS THEY WANT
