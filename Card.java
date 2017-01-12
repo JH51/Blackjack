@@ -13,7 +13,7 @@ public class Card {
 	this.name = name;
 	if (name == 'A') {
 	    this.name2 = "ace";
-	    this.value = 1;
+	    this.value = 11;
 	}
 	if (name >= '2' && name <= '9') {
 	    this.name2 = name + "";
