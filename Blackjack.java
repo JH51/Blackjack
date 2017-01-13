@@ -42,8 +42,8 @@ public class Blackjack {
     }
     */
 
-    
-    
+
+
     public static void main(String[] args) {
 	System.out.println("\nWelcome to Blackjack");
 	//System.out.println(CLEAR_SCREEN);
@@ -55,7 +55,7 @@ public class Blackjack {
   Scanner playerInput = new Scanner(System.in);
 
   while(game.money > 0){
-      
+
       game = new Blackjack(game.money);
 
       int playerValue = 0;
@@ -79,8 +79,9 @@ public class Blackjack {
       //loop for action
       while(true){
 	  if(game.dealer.getHand()[0].getValue() + game.dealer.getHand()[1].getValue() == 21){
-	      System.out.println("Dealer has Blackjack");
+
 	      game.money -= bet;
+        System.out.println("Dealer has Blackjack." + " You lose " + bet + ".");
 	      roundFinished = true;
 	  }
 
@@ -113,7 +114,7 @@ public class Blackjack {
           game.money -= bet;
           break;
       }
-      
+
       //NOT BUSTING
       if((game.player.getHand()[0].getValue() + game.player.getHand()[1].getValue()
       + game.player.getHand()[2].getValue()) <= 21) {
@@ -147,17 +148,17 @@ public class Blackjack {
 
     //System.out.println("MONEY: " + game.money);
     //System.out.println("BET: " + bet);
-    
+
     if(dealerValue == playerValue){
       System.out.println("Push");
       roundFinished = true;
     }
-    
+
     if((playerValue > dealerValue) && roundFinished == false){
       System.out.println("You win the hand, you gain: " + bet);
       game.money += bet;
     }
-    
+
     if((playerValue < dealerValue) && roundFinished == false){
       roundFinished = true;
       System.out.println("Dealer wins, you lose: " + bet);
