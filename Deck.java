@@ -1,5 +1,5 @@
 import java.util.Random;
-
+//deck class
 public class Deck {
 
     Random r = new Random();
