@@ -48,7 +48,7 @@ public class Deck {
 	return card;
     }
 
-    public int length() {
+    public int size() {
 	return count;
     }
 
