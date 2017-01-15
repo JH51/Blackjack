@@ -25,24 +25,6 @@ public class Blackjack {
 	dealer = new Agent();
 	this.money = money;
     }
-
-    /*
-    public void shuffle(Random r) {
-	Card[] temp = deck.getDeck();
-	Card a;
-	Card b;
- 	for (int i = 0; i < temp.length; i += 1) {
-	    int j = r.nextInt(temp.length);
-	    a = temp[i];
-	    b = temp[j];
-	    temp[i] = b;
-	    temp[j] = a;
-	}
-	this.deck.setDeck(temp);
-    }
-    */
-
-    
     
     public static void main(String[] args) {
 	
@@ -53,21 +35,22 @@ public class Blackjack {
 	Deck d = new Deck();
 	d.shuffle();
 
-  Scanner playerInput = new Scanner(System.in);
+	Scanner playerInput = new Scanner(System.in);
 
-  while(game.money > 0){
+	while(game.money > 0){
       
-      game = new Blackjack(game.money);
+	    game = new Blackjack(game.money);
 
-      int playerValue = 0;
-      boolean roundFinished = false;
-      System.out.println("\nCurrent funds: " + game.money + " \nHow much to wager?");
+	    int playerValue = 0;
+	    boolean roundFinished = false;
+	    System.out.println("\nCurrent funds: " + game.money + " \nHow much to wager?");
 
-      int bet = playerInput.nextInt();
-      if(bet > game.money){
-	  System.out.println("Cannot bet more than what you currently have");
-	  break;
-      }
+	    int bet = playerInput.nextInt();
+	    if(bet > game.money){
+		System.out.println("Cannot bet more than what you currently have");
+		break;
+	    }
+	    
       //player gets two cards
       game.player.draw(d);
       game.player.draw(d);
