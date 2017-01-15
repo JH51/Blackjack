@@ -11,6 +11,7 @@ Functional:
 Non-functional:
 	GUI implementation
 	Multiple turns/rounds
+	Separate values for Ace (1/11)
 
 Directions:
 	1. javac *.java
