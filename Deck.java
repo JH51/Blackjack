@@ -4,7 +4,7 @@ public class Deck {
 
     Random r = new Random();
     private Card[] deck;
-    private int count = 0;
+    private int count;
 
     public Deck() {
 	count = 52;
@@ -41,7 +41,7 @@ public class Deck {
     }
 
     public Card draw() {
-	int index = 52 - count;
+	int index = deck.length - count;
 	this.count -= 1;
 	Card card = this.deck[index];
 	this.deck[index] = null;
