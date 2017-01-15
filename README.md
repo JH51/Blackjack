@@ -7,6 +7,7 @@ Text-based game of Blackjack (standard)
 Functional:
 	Terminal implementation
 	Betting
+	Scoring
 
 Non-functional:
 	GUI implementation
