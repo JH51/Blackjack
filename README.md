@@ -9,6 +9,7 @@ Functional:
 	Betting
 
 Non-functional:
+	GUI implementation
 	Multiple turns/rounds
 
 Directions:
