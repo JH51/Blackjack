@@ -10,6 +10,7 @@ public class Blackjack {
     private Agent dealer;
     private Deck deck;
     private int money = 100;
+    //private int score = 0;
 
     public Blackjack() {
 	deck = new Deck();
@@ -30,6 +31,7 @@ public class Blackjack {
 	
 	System.out.println("\nWelcome to Blackjack");
 	Blackjack game = new Blackjack();
+	int score = 0;
 
 	Scanner playerInput = new Scanner(System.in);
 
@@ -133,11 +135,13 @@ public class Blackjack {
 		    roundFinished = true;
 		    System.out.println("Dealer busts, you win: " + bet);
 		    game.money += bet;
+		    score += bet;
 		}
 	    }
 
-	    //System.out.println("MONEY: " + game.money);
-	    //System.out.println("BET: " + bet);
+	    //System.out.println("  BET: " + bet);
+	    //System.out.println("  MONEY: " + game.money);
+	    //System.out.println("  SCORE: " + score);
 	    //System.out.println(d.size());
     
 	    if(dealerValue == playerValue){
@@ -148,6 +152,7 @@ public class Blackjack {
 	    if((playerValue > dealerValue) && roundFinished == false){
 		System.out.println("You win the hand, you gain: " + bet);
 		game.money += bet;
+		score += bet;
 	    }
 	    
 	    if((playerValue < dealerValue) && roundFinished == false){
@@ -155,8 +160,10 @@ public class Blackjack {
 		System.out.println("Dealer wins, you lose: " + bet);
 		game.money -= bet;
 	    }
-
+	    
 	}
+
+	System.out.println("\nYour score is: " + score);
 
     }
 
