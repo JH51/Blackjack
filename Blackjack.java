@@ -45,11 +45,6 @@ public class Blackjack {
     
     
     public static void main(String[] args) {
-
-	final String ANSI_CLS = "\u001b[2J";
-        final String ANSI_HOME = "\u001b[H";
-        System.out.print(ANSI_CLS + ANSI_HOME);
-        System.out.flush();
 	
 	System.out.println("\nWelcome to Blackjack");
 	//System.out.println(CLEAR_SCREEN);
