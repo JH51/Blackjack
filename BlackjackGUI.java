@@ -25,6 +25,8 @@ public class BlackjackGUI extends JFrame{
 	JLabel l1 = new JLabel("Money: " + money);
 	JLabel l2 = new JLabel("Score: " + score);
 	JButton b1 = new JButton("PLAY");
+
+	/*
         b1.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
 		    JDialog d = new JDialog(frame, "How much would you like to wager?", true);
@@ -38,6 +40,8 @@ public class BlackjackGUI extends JFrame{
 		}
 	    }
 	    );
+	*/
+	
 	JButton b2 = new JButton("Hit");
 	JButton b3 = new JButton("Stay");
 	JButton b4 = new JButton("Next Hand");
