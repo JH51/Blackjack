@@ -54,12 +54,12 @@ public class BlackjackGUI extends JFrame{
 	game.dealer.draw(game.deck);
 	game.dealer.draw(game.deck);
 
-	ImageIcon imageIcon1 = new ImageIcon(game.player.getHand()[0].img);
+	ImageIcon imageIcon1 = new ImageIcon("img/" + game.player.getHand()[0].img);
 	Image image1 = imageIcon1.getImage();
 	Image newimg1 = image1.getScaledInstance(120, 180,  java.awt.Image.SCALE_SMOOTH);
 	imageIcon1 = new ImageIcon(newimg1);
 
-	ImageIcon imageIcon2 = new ImageIcon(game.player.getHand()[1].img);
+	ImageIcon imageIcon2 = new ImageIcon("img/" + game.player.getHand()[1].img);
 	Image image2 = imageIcon2.getImage();
 	Image newimg2 = image2.getScaledInstance(120, 180,  java.awt.Image.SCALE_SMOOTH);
 	imageIcon2 = new ImageIcon(newimg2);
