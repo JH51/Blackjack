@@ -20,7 +20,7 @@ public class Card {
 	    this.value = name - '0';
 	}
 	if (name == '0') {
-	    this.name2 = "ten";
+	    this.name2 = "10";
 	    this.value = 10;
 	}
 	if (name == 'J') {
@@ -35,8 +35,8 @@ public class Card {
 	    this.name2 = "king";
 	    this.value = 10;
 	}
-	if (!hidden) this.img = "lib/" + this.name2 + "_of_" + this.suit.toString() + ".png";
-	else this.img = "lib/hidden.png";
+	if (!hidden) this.img = "img/" + this.name2 + "_of_" + this.suit.toString() + ".png";
+	else this.img = "img/hidden.png";
     }
 
     public Card(int value, Suit suit) {

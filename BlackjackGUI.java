@@ -6,9 +6,13 @@ public class BlackjackGUI extends JFrame{
 
     private Container pane;
     private JFrame frame = new JFrame("Blackjack");
-    private Blackjack game;
+    private Blackjack game = new Blackjack();
+    private int money;
+    private int score;
     
     public BlackjackGUI() {
+	this.money = 100;
+	this.score = 0;
 	this.setTitle("Vim City Blackjack Casino");
 	this.setSize(1280, 720);
 	this.setLocation(100,100);
@@ -17,6 +21,9 @@ public class BlackjackGUI extends JFrame{
 	pane = this.getContentPane();
 	pane.setBackground( new Color(48,128,48) );
 	pane.setLayout(new FlowLayout(2,5,200));
+
+	JLabel l1 = new JLabel("Money: " + money);
+	JLabel l2 = new JLabel("Score: " + score);
 	JButton b1 = new JButton("PLAY");
         b1.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
@@ -34,15 +41,27 @@ public class BlackjackGUI extends JFrame{
 	JButton b2 = new JButton("Hit");
 	JButton b3 = new JButton("Stay");
 	JButton b4 = new JButton("Next Hand");
-
+	
+	pane.add(l1);
+	pane.add(l2);
 	pane.add(b1);
 	pane.add(b2);
 	pane.add(b3);
+
+	game.player.draw(game.deck);
+	game.player.draw(game.deck);
+
+	game.dealer.draw(game.deck);
+	game.dealer.draw(game.deck);
+
+	pane.add(new JLabel(new ImageIcon(game.player.getHand()[0].img)));
+	pane.add(new JLabel(new ImageIcon(game.player.getHand()[1].img)));
+	
     }
     
     public static void main(String[] args) {
-	BlackjackGUI tester = new BlackjackGUI();
-	tester.setVisible(true);
+	BlackjackGUI b = new BlackjackGUI();
+	b.setVisible(true);
     }
 
 }

@@ -6,17 +6,16 @@ public class Blackjack {
     private static final String HIDE_CURSOR =  "\033[?25l";
     private static final String SHOW_CURSOR =  "\033[?25h";
 
-    private Agent player;
-    private Agent dealer;
-    private Deck deck;
-    private int money = 100;
-    //private int score = 0;
+    Agent player;
+    Agent dealer;
+    Deck deck;
+    int money;
 
     public Blackjack() {
 	deck = new Deck();
         player = new Agent();
 	dealer = new Agent();
-	//this.money = 100;
+	this.money = 100;
     }
 
     public Blackjack(int money) {
