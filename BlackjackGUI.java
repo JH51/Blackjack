@@ -49,6 +49,9 @@ public class BlackjackGUI extends JFrame{
 	pane.add(game.player.getHand()[0].toImage());
 	pane.add(game.player.getHand()[1].toImage());
 
+	JLabel l4 = new JLabel("Dealer");
+	pane.add(l4);
+
 	pane.add(game.dealer.getHand()[0].toImage());
 	
     }
