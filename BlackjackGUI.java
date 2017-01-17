@@ -9,7 +9,7 @@ public class BlackjackGUI extends JFrame {
 
 
 
-    private BlackjackPanel panel = new BlackjackPanel();
+    public BlackjackPanel panel = new BlackjackPanel();
 
     //gui
     JLabel moneyLabel;

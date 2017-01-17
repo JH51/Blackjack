@@ -1,3 +1,5 @@
+package mainPackage;
+
 public class Suit {
 
     //private char suit;

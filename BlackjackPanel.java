@@ -1,3 +1,5 @@
+package mainPackage;
+
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Graphics;
@@ -26,7 +28,6 @@ public class BlackjackPanel extends JPanel {
     private boolean GameOver = true;
     private Point cardLocationPlayer;
     private Point cardLocationDealer;
-
 
     //gui:
     JLabel moneyLabel;
@@ -70,7 +71,7 @@ public class BlackjackPanel extends JPanel {
             }
         });
 
-         nextButton.addActionListener(new ActionListener() {
+        nextButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 nextButtonAction();
             }
@@ -92,9 +93,17 @@ public class BlackjackPanel extends JPanel {
         if (!GameOver) {//draw while game is not over
 
             //paints cards for the player and the dealer:
-            paintCards(g, game.player, cardLocationPlayer);
-            paintCards(g, game.dealer, cardLocationDealer);
+            paintCards(g, game.player, cardLocationPlayer, false);
+
+            //if its the first 2 draws
+            if (game.dealer.hand[2] == null) {
+                paintCards(g, game.dealer, cardLocationDealer, true);
+            } else {
+                paintCards(g, game.dealer, cardLocationDealer, false);
+            }
         }
+
+
     }
 
     public void startgame() {
@@ -105,7 +114,7 @@ public class BlackjackPanel extends JPanel {
             moneyLabel.setText("Money: " + (game.money - betAmount));
 
             score = 0;
-            scoreLabel.setText("Score: "+ score);
+            scoreLabel.setText("Score: " + score);
 
             GameOver = false;
 
@@ -123,21 +132,23 @@ public class BlackjackPanel extends JPanel {
         }
     }
 
-    public void paintCards(Graphics g, Agent agent, Point point) {
+    public void paintCards(Graphics g, Agent agent, Point point, boolean start) {
+        int cardsToPrint;
+        if (start) {
+            cardsToPrint = 1;
+        } else {
+            cardsToPrint = agent.count;
+        }
 
         //where cards will be drawn:
         cardLocationPlayer = new Point(430, 510);
         cardLocationDealer = new Point(430, 50);
         try {
-            for (int i = 0; i < agent.count; i++) {
+            for (int i = 0; i < cardsToPrint; i++) {
 
                 String cardFolder = "/img/";
                 String cardname = "";
 
-//                System.out.println("\nYour cards are:\n"
-//                        + agent.getHand()[0].toString() + "\n"
-//                        + agent.getHand()[1].toString()
-//                        + "  \n location of cardS:" + point.toString());
                 cardname = agent.getHand()[i].toString().replaceAll(" ", "_");
                 cardname += ".png";
 
@@ -149,6 +160,15 @@ public class BlackjackPanel extends JPanel {
                 point.x += 130;
 
             }//end for loop
+
+            //if one card is hidden:
+            if (start) {
+                BufferedImage temp;
+                temp = ImageIO.read(getClass().getResource("/img/hidden.png"));
+
+                g.drawImage(temp, point.x, point.y, 120, 155, null);
+
+            }
 
         } catch (IOException ex) {
             System.out.println("error - loading cards");
@@ -212,50 +232,46 @@ public class BlackjackPanel extends JPanel {
                 GameOver = true;
             }
 
-            }//end if
+        }//end if
 
-        if(game.dealer.getValue() >= 17){
+        if (game.dealer.getValue() >= 17) {
 
             if (game.dealer.getValue() == game.player.getValue()) {
-            System.out.println("Push");
-            JOptionPane.showMessageDialog(null, "Push");
-            GameOver = true;
-        }
+                System.out.println("Push");
+                JOptionPane.showMessageDialog(null, "Push");
+                GameOver = true;
+            }
 
-        //player win:
-        if ((game.player.getValue() > game.dealer.getValue()) && GameOver == false) {
-            System.out.println("You win the hand, you gain: " + betAmount);
-            JOptionPane.showMessageDialog(null, "You win the hand, you gain: " + betAmount);
-            game.money += betAmount;
-            score += betAmount;
-        }
+            //player win:
+            if ((game.player.getValue() > game.dealer.getValue()) && GameOver == false) {
+                System.out.println("You win the hand, you gain: " + betAmount);
+                JOptionPane.showMessageDialog(null, "You win the hand, you gain: " + betAmount);
+                game.money += betAmount;
+                score += betAmount;
+            }
 
-        //player lost
-        if ((game.player.getValue() < game.dealer.getValue()) && GameOver == false) {
+            //player lost
+            if ((game.player.getValue() < game.dealer.getValue()) && GameOver == false) {
 
-            System.out.println("Dealer wins, you lose: " + betAmount);
-            JOptionPane.showMessageDialog(null, "Dealer wins, you lose: " + betAmount);
-            game.money -= betAmount;
-            GameOver = true;
-        }
+                System.out.println("Dealer wins, you lose: " + betAmount);
+                JOptionPane.showMessageDialog(null, "Dealer wins, you lose: " + betAmount);
+                game.money -= betAmount;
+                GameOver = true;
+            }
 
-        moneyLabel.setText("Money: " + (game.money ));
-        scoreLabel.setText("Score: "+ score);
+            moneyLabel.setText("Money: " + (game.money));
+            scoreLabel.setText("Score: " + score);
 
         }//end if2
 
-
-
     }//end dealer actions
 
-
-
-    public void nextButtonAction(){
+    public void nextButtonAction() {
 
         try {
-            int currentMoney =  game.money;
+            int currentMoney = game.money;
             game = new Blackjack();
-            game.money = score+currentMoney;
+            game.money = score + currentMoney;
             String message = JOptionPane.showInputDialog(null, "How much would you like to wager?");
             betAmount = Integer.parseInt(message);
             moneyLabel.setText("Money: " + (game.money - betAmount));

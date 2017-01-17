@@ -1,3 +1,5 @@
+package mainPackage;
+
 import java.util.Random;
 //deck class
 public class Deck {
