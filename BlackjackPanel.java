@@ -206,7 +206,6 @@ public class BlackjackPanel extends JPanel {
 
     public void stayButtonAction() {
 
-
         dealerActions();
     }
 

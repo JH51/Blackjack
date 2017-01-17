@@ -62,14 +62,4 @@ public class Deck {
 	this.deck = deck;
     }
 
-    public static void main(String[] args) {
-	Deck a = new Deck();
-	a.shuffle();
-	System.out.println(a.count);
-	for (int i = 0; i < a.deck.length; i += 1) {
-	    System.out.println(a.deck[i].toString() + " " + i);
-	}
-	System.out.println(a.draw().toString());
-    }
-
 }
