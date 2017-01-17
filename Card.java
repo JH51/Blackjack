@@ -1,10 +1,10 @@
-<<<<<<< HEAD
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-=======
-package mainPackage;
->>>>>>> finalgui
+
+//package mainPackage;
+
 
 public class Card {
 
@@ -65,7 +65,7 @@ public class Card {
     }
 
     public String toString() {
-	//return this.img;
+
 	return this.name2 + " of " + this.suit.toString();
     }
 
@@ -74,8 +74,8 @@ public class Card {
 	Image image1 = imageIcon1.getImage();
 	Image newImage1 = image1.getScaledInstance(120, 180, java.awt.Image.SCALE_SMOOTH);
 	imageIcon1 = new ImageIcon(newImage1);
-        JLabel l1 =  new JLabel(imageIcon1);
+  JLabel l1 =  new JLabel(imageIcon1);
 	return l1;
     }
-    
+
 }
