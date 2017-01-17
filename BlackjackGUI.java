@@ -32,7 +32,9 @@ public class BlackjackGUI extends JFrame{
         b1.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
 		    game.player.draw(game.deck);
-		    
+		    JLabel stuff = new JLabel("" + game.player.count);
+		    pane.add(stuff);
+		    pane.add(game.player.hand[game.player.count - 1].toImage());
 		}
 	    });
 	JButton b2 = new JButton("Stay");
@@ -46,13 +48,13 @@ public class BlackjackGUI extends JFrame{
 	game.dealer.draw(game.deck);
 	game.dealer.draw(game.deck);
 
-	pane.add(game.player.getHand()[0].toImage());
-	pane.add(game.player.getHand()[1].toImage());
+	pane.add(game.player.hand[0].toImage());
+	pane.add(game.player.hand[1].toImage());
 
 	JLabel l4 = new JLabel("Dealer");
 	pane.add(l4);
 
-	pane.add(game.dealer.getHand()[0].toImage());
+	pane.add(game.dealer.hand[0].toImage());
 	
     }
     
