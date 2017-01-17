@@ -1,3 +1,7 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
 public class Card {
 
     private char name;
@@ -61,4 +65,13 @@ public class Card {
 	return this.name2 + " of " + this.suit.toString();
     }
 
+    public JLabel toImage() {
+	ImageIcon imageIcon1 = new ImageIcon("img/" + this.img);
+	Image image1 = imageIcon1.getImage();
+	Image newImage1 = image1.getScaledInstance(120, 180, java.awt.Image.SCALE_SMOOTH);
+	imageIcon1 = new ImageIcon(newImage1);
+        JLabel l1 =  new JLabel(imageIcon1);
+	return l1;
+    }
+    
 }
