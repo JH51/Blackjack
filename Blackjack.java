@@ -1,3 +1,5 @@
+package mainPackage;
+
 import java.util.Scanner;
 
 public class Blackjack {
@@ -25,9 +27,9 @@ public class Blackjack {
 	dealer = new Agent();
 	this.money = money;
     }
-    
+
     public static void main(String[] args) {
-	
+
 	System.out.println("\nWelcome to Blackjack");
 	Blackjack game = new Blackjack();
 	int score = 0;
@@ -35,7 +37,7 @@ public class Blackjack {
 	Scanner playerInput = new Scanner(System.in);
 
 	while(game.money > 0){
-      
+
 	    game = new Blackjack(game.money);
 
 	    int playerValue = 0;
@@ -47,7 +49,7 @@ public class Blackjack {
 		System.out.println("Cannot bet more than what you currently have");
 		break;
 	    }
-	    
+
       //player gets two cards
 	    game.player.draw(game.deck);
 	    game.player.draw(game.deck);
@@ -81,13 +83,13 @@ public class Blackjack {
 		    playerValue = game.player.getHand()[0].getValue() + game.player.getHand()[1].getValue();
 		    break;
 		}
-		
+
        //HITTING
 		if(hitOrStay == 1){
 		    game.player.draw(game.deck);
 		    System.out.println("\nYou have drawn a " +
 				       game.player.getHand()[2].toString());
-		    
+
        //BUSTING
 		    if((game.player.getHand()[0].getValue() + game.player.getHand()[1].getValue()
 			+ game.player.getHand()[2].getValue()) > 21) {
@@ -99,7 +101,7 @@ public class Blackjack {
 			game.money -= bet;
 			break;
 		    }
-      
+
 	//NOT BUSTING
 		    if((game.player.getHand()[0].getValue() +
 			game.player.getHand()[1].getValue() +
@@ -142,24 +144,24 @@ public class Blackjack {
 	    //System.out.println("  MONEY: " + game.money);
 	    //System.out.println("  SCORE: " + score);
 	    //System.out.println(d.size());
-    
+
 	    if(dealerValue == playerValue){
 		System.out.println("Push");
 		roundFinished = true;
 	    }
-	    
+
 	    if((playerValue > dealerValue) && roundFinished == false){
 		System.out.println("You win the hand, you gain: " + bet);
 		game.money += bet;
 		score += bet;
 	    }
-	    
+
 	    if((playerValue < dealerValue) && roundFinished == false){
 		roundFinished = true;
 		System.out.println("Dealer wins, you lose: " + bet);
 		game.money -= bet;
 	    }
-	    
+
 	}
 
 	System.out.println("\nYour score is: " + score);
