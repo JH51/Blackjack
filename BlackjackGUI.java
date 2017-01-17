@@ -33,8 +33,8 @@ public class BlackjackGUI extends JFrame{
 		public void actionPerformed(ActionEvent e) {
 		    game.player.draw(game.deck);
 		    pane.add(game.player.hand[game.player.count - 1].toImage());
-		    setVisible(false);
-		    setVisible(true);
+		    gameRules();
+		    update();
 		}
 	    });
 	JButton b2 = new JButton("Stay");
@@ -59,10 +59,23 @@ public class BlackjackGUI extends JFrame{
         for (int i = 0; i < game.player.count; i += 1) pane.add(game.player.hand[i].toImage());
 	
     }
+
+    public void update() {
+	setVisible(false);
+	setVisible(true);
+    }
+
+    public void gameRules() {
+	if (game.player.value > 21) {
+	    JButton bust = new JButton("BUST");
+	    this.pane.add(bust);
+	}
+	update();
+    }
     
     public static void main(String[] args) {
 	BlackjackGUI b = new BlackjackGUI();
 	b.setVisible(true);
     }
-
+    
 }
