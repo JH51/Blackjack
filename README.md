@@ -15,3 +15,5 @@ Non-functional:
 	Separate values for Ace (1/11)
 
 Directions:
+
+java -jar "/Users/MidgetRevolt/NetBeansProjects/FINALPROJECT/dist/FINALPROJECT.jar"
