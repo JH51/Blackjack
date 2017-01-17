@@ -1,27 +1,13 @@
+package mainPackage;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class BlackjackGUI extends JFrame{
+public class BlackjackGUI extends JFrame {
 
-    private Container pane;
-    private JFrame frame = new JFrame("Blackjack");
-    private Blackjack game = new Blackjack();
-    private int money;
-    private int score;
-    
-    public BlackjackGUI() {
-	this.money = 100;
-	this.score = 0;
-	this.setTitle("Vim City Blackjack Casino");
-	this.setSize(1280, 720);
-	this.setLocation(100,100);
-	this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-	
-	pane = this.getContentPane();
-	pane.setBackground( new Color(48,128,48) );
-	pane.setLayout(new FlowLayout(2,5,200));
 
+<<<<<<< HEAD
 	JLabel l1 = new JLabel("Money: " + money);
 	JLabel l2 = new JLabel("Score: " + score);
 
@@ -44,10 +30,13 @@ public class BlackjackGUI extends JFrame{
 
 	JLabel l3 = new JLabel("Dealer");
 	pane.add(l3);
+=======
 
-	game.dealer.draw(game.deck);
-	game.dealer.draw(game.deck);
+>>>>>>> finalgui
 
+    public BlackjackPanel panel = new BlackjackPanel();
+
+<<<<<<< HEAD
 	for (int i = 0; i < game.dealer.count; i += 1) pane.add(game.dealer.hand[i].toImage());
 
 	JLabel l4 = new JLabel("Player");
@@ -73,9 +62,26 @@ public class BlackjackGUI extends JFrame{
 	update();
     }
     
+=======
+    //gui
+    JLabel moneyLabel;
+
+    public BlackjackGUI() {
+
+        this.setTitle("Vim City Blackjack Casino");
+        this.setSize(1280, 720);
+        this.setLocation(100, 100);
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+        this.add(panel);
+        this.setComponentZOrder(panel, 0);
+
+    }
+
+>>>>>>> finalgui
     public static void main(String[] args) {
-	BlackjackGUI b = new BlackjackGUI();
-	b.setVisible(true);
+        BlackjackGUI b = new BlackjackGUI();
+        b.setVisible(true);
     }
     
 }
